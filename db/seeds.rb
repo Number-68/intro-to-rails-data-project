@@ -41,7 +41,7 @@ end
 
 
 # creating customers
-92.times do 
+200.times do 
     Customer.create!( 
         first_name: Faker::Name.first_name, 
         last_name: Faker::Name.last_name, 
@@ -54,7 +54,7 @@ end
 
 
 # creating purchases and lineitmes
-123.times do
+200.times do
 
     # pick random customer
     customer = Customer.all.sample
@@ -68,7 +68,7 @@ end
     )
 
     # random purchases up to 10
-    rand(1..10).times do
+    rand(1..3).times do
 
         #random product and quantity
         product = Product.all.sample
