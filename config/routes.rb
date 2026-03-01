@@ -15,7 +15,12 @@ Rails.application.routes.draw do
 
 
   # define page route to customers 
+  get "/customers", to: "customers#index"
 
 
   #define page route to purchases (idea: each purchase card/partial can include the entire itemline in a single card, no?)
+  get "/purchases", to: "purchases#index"
+
+
+
 end
