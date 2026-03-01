@@ -1,0 +1,35 @@
+<h1>Purchase <%= @purchase.id %></h1>
+
+<p>Customer: <%= @purchase.customer.first_name %> <%= @purchase.customer.last_name %></p>
+<p>Date: <%= @purchase.date %></p>
+<p>Total Price: <%= @purchase.total_price %></p>
+
+
+
+<h2>Items in this Purchase</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Product</th>
+      <th>Quantity</th>
+      <th>Unit Price</th>
+      <th>Subtotal</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @purchase.line_items.each do |item| %>
+      <tr>
+        <td><%= item.product.name %></td>
+        <td><%= item.quantity %></td>
+        <td><%= item.product.price %></td>
+        <td><%= item.quantity * item.product.price.to_f %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+
+<p><%= link_to "Back to Purchases", purchases_path %></p>

@@ -11,16 +11,19 @@ Rails.application.routes.draw do
 
   # Defines root to products index.
   root "products#index"
-  resources :products, only: [:index]
+  resources :products
 
 
   # define page route to customers 
   get "/customers", to: "customers#index"
+  resources :customers
 
 
   #define page route to purchases (idea: each purchase card/partial can include the entire itemline in a single card, no?)
   get "/purchases", to: "purchases#index"
 
 
+  # include purchases resources
+  resources :purchases
 
 end

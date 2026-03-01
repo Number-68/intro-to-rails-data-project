@@ -1,4 +1,27 @@
 <h1> Purchases Index Page </h1> 
-<p> i think everything is working right. </p>
 
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Customer</th>
+      <th>Date</th>
+      <th>Total Price</th>
+      <th></th>
+    </tr>
+  </thead>
 
+  <tbody>
+    <% @purchases.each do |purchase| %>
+      <tr>
+        <td><%= purchase.id %></td>
+        <td><%= purchase.customer.first_name %> <%= purchase.customer.last_name %></td>
+        <td><%= purchase.date %></td>
+        <td><%= purchase.total_price %></td>
+        <td><%= link_to "Show", purchase_path(purchase) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @purchases %>
