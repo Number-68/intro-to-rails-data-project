@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
-    def index
+    def index 
+        @products = Product.order(:id).page(params[:page]).per(30) 
     end
 end
