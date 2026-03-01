@@ -9,6 +9,13 @@ Rails.application.routes.draw do
   get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
 
-  # Defines the root path route ("/")
-  # root "posts#index"
+  # Defines root to products index.
+  root "products#index"
+  resources :products, only: [:index]
+
+
+  # define page route to customers 
+
+
+  #define page route to purchases (idea: each purchase card/partial can include the entire itemline in a single card, no?)
 end
