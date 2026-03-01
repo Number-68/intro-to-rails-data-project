@@ -1,2 +1,29 @@
 <h1> Products Index Page </h1> 
 
+<table>
+
+    <thead> 
+        <tr>
+            <th>ID</th>
+            <th>Brand</th>
+            <th>Name</th> 
+            <th>Price</th>
+            <th>Category</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% @products.each do |product| %>
+            <tr>
+                <td><%= product.id %></td>
+                <td><%= product.brand %></td>
+                <td><%= product.name %></td>
+                <td><%= product.price %></td>
+                <td><%= product.category.product_category %></td>
+
+            </tr>
+        <% end %>
+    </tbody>
+
+</table>
+<%= paginate @products %>
