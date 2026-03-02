@@ -3,6 +3,28 @@
 
 
 
+<% if @query.present? %>
+  <p>Showing results for: <%= @query %></p>
+  <a href="/customers" class="button">Clear Search</a>
+<% end %>
+
+
+
+<form method="get" action="/customers">
+  <select name="field">
+    <option value="first_name" <%= "selected" if @field == "first_name" %>>First Name</option>
+    <option value="last_name" <%= "selected" if @field == "last_name" %>>Last Name</option>
+    <option value="phone_number" <%= "selected" if @field == "phone_number" %>>Phone Number</option>
+    <option value="email" <%= "selected" if @field == "email" %>>Email</option>
+  </select>
+
+  <input type="text" name="query" value="<%= @query %>" placeholder="Search...">
+
+  <button type="submit">Search</button>
+</form>
+
+
+
 <table>
 
     <thead> 

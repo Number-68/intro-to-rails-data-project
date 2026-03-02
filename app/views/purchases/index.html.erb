@@ -1,5 +1,27 @@
 <h1> Purchases Index Page </h1> 
 
+
+
+<% if @query.present? %>
+  <p>Showing results for: <%= @query %></p>
+  <a href="/purchase" class="button">Clear Search</a>
+<% end %>
+
+
+
+<form method="get" action="/purchases">
+  <select name="field">
+    <option value="customer_id" <%= "selected" if @field == "customer_id" %>>Customer ID</option>
+    <option value="total_price" <%= "selected" if @field == "total_price" %>>Total Price</option>
+  </select>
+
+  <input type="text" name="query" value="<%= @query %>" placeholder="Search...">
+
+  <button type="submit">Search</button>
+</form>
+
+
+
 <table>
   <thead>
     <tr>

@@ -1,5 +1,27 @@
 <h1> Products Index Page </h1> 
 
+
+<% if @query.present? %>
+  <p>Showing results for: <%= @query %></p>
+  <a href="/products" class="button">Clear Search</a>
+<% end %>
+
+
+
+<form method="get" action="/products">
+  <select name="field">
+    <option value="name" <%= "selected" if @field == "name" %>>Product Name</option>
+    <option value="brand" <%= "selected" if @field == "brand" %>>Product Brand</option>
+    <option value="category" <%= "selected" if @field == "category" %>>Category</option>
+  </select>
+
+  <input type="text" name="query" value="<%= @query %>" placeholder="Search...">
+
+  <button type="submit">Search</button>
+</form>
+
+
+
 <table>
 
     <thead> 
