@@ -26,4 +26,8 @@ Rails.application.routes.draw do
   # include purchases resources
   resources :purchases
 
+
+  # define about page.
+  get "/about", to: "about#index"
+
 end
